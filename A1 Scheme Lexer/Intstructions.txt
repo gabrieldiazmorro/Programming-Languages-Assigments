@@ -1,0 +1,18 @@
+build: 1st step
+	jflex lexer.flex
+	javac SchemeLexer.java
+run:step
+	java SchemeLexer scheme-example.scm > output.txt    //returns a text file with the prints from the java class 
+	cat output.txt
+test:
+	java SchemeLexer testing
+
+
+	
+Layout of lexer:
+
+UserCode
+%%
+Options and declarations
+%%
+Lexical rules

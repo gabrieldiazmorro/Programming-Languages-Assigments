@@ -1,0 +1,1833 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    CB
+    OB
+
+Grammar
+
+Rule 0     S' -> Exp
+Rule 1     Exp -> Term
+Rule 2     Exp -> Term PLUS Exp
+Rule 3     Exp -> Term MINUS Exp
+Rule 4     Exp -> Term OPERATOR Exp
+Rule 5     Exp -> IF Exp THEN Exp ELSE Exp
+Rule 6     Exp -> LET DefList IN Exp
+Rule 7     Exp -> MAP IdList TO Exp
+Rule 8     Exp -> MAP TO Exp
+Rule 9     Term -> PLUS Term
+Rule 10    Term -> MINUS Term
+Rule 11    Term -> TILDE Term
+Rule 12    Term -> Factor
+Rule 13    Term -> Factor OP ExpList CP
+Rule 14    Term -> Factor OP CP
+Rule 15    Term -> Empty
+Rule 16    Term -> INT
+Rule 17    Term -> Bool
+Rule 18    Factor -> OP Exp CP
+Rule 19    Factor -> Prim
+Rule 20    Factor -> Id
+Rule 21    ExpList -> PropExpList
+Rule 22    PropExpList -> Exp
+Rule 23    PropExpList -> Exp COMMA PropExpList
+Rule 24    IdList -> PropIdList
+Rule 25    PropIdList -> Id
+Rule 26    PropIdList -> Id COMMA PropIdList
+Rule 27    Def -> Id ASSIGN Exp SEMICOLON
+Rule 28    DefList -> Def DefList
+Rule 29    DefList -> Def
+Rule 30    Empty -> EMPTY
+Rule 31    Bool -> TRUE
+Rule 32    Bool -> FALSE
+Rule 33    Prim -> NUMBER_1
+Rule 34    Prim -> FUNCTION_1
+Rule 35    Prim -> LIST_1
+Rule 36    Prim -> EMPTY_1
+Rule 37    Prim -> CONS_1
+Rule 38    Prim -> CONS
+Rule 39    Prim -> FIRST
+Rule 40    Prim -> REST
+Rule 41    Prim -> ARITY
+
+Terminals, with rules where they appear
+
+ARITY                : 41
+ASSIGN               : 27
+CB                   : 
+COMMA                : 23 26
+CONS                 : 38
+CONS_1               : 37
+CP                   : 13 14 18
+ELSE                 : 5
+EMPTY                : 30
+EMPTY_1              : 36
+FALSE                : 32
+FIRST                : 39
+FUNCTION_1           : 34
+IF                   : 5
+IN                   : 6
+INT                  : 16
+Id                   : 20 25 26 27
+LET                  : 6
+LIST_1               : 35
+MAP                  : 7 8
+MINUS                : 3 10
+NUMBER_1             : 33
+OB                   : 
+OP                   : 13 14 18
+OPERATOR             : 4
+PLUS                 : 2 9
+REST                 : 40
+SEMICOLON            : 27
+THEN                 : 5
+TILDE                : 11
+TO                   : 7 8
+TRUE                 : 31
+error                : 
+
+Nonterminals, with rules where they appear
+
+Bool                 : 17
+Def                  : 28 29
+DefList              : 6 28
+Empty                : 15
+Exp                  : 2 3 4 5 5 5 6 7 8 18 22 23 27 0
+ExpList              : 13
+Factor               : 12 13 14
+IdList               : 7
+Prim                 : 19
+PropExpList          : 21 23
+PropIdList           : 24 26
+Term                 : 1 2 3 4 9 10 11
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . Exp
+    (1) Exp -> . Term
+    (2) Exp -> . Term PLUS Exp
+    (3) Exp -> . Term MINUS Exp
+    (4) Exp -> . Term OPERATOR Exp
+    (5) Exp -> . IF Exp THEN Exp ELSE Exp
+    (6) Exp -> . LET DefList IN Exp
+    (7) Exp -> . MAP IdList TO Exp
+    (8) Exp -> . MAP TO Exp
+    (9) Term -> . PLUS Term
+    (10) Term -> . MINUS Term
+    (11) Term -> . TILDE Term
+    (12) Term -> . Factor
+    (13) Term -> . Factor OP ExpList CP
+    (14) Term -> . Factor OP CP
+    (15) Term -> . Empty
+    (16) Term -> . INT
+    (17) Term -> . Bool
+    (18) Factor -> . OP Exp CP
+    (19) Factor -> . Prim
+    (20) Factor -> . Id
+    (30) Empty -> . EMPTY
+    (31) Bool -> . TRUE
+    (32) Bool -> . FALSE
+    (33) Prim -> . NUMBER_1
+    (34) Prim -> . FUNCTION_1
+    (35) Prim -> . LIST_1
+    (36) Prim -> . EMPTY_1
+    (37) Prim -> . CONS_1
+    (38) Prim -> . CONS
+    (39) Prim -> . FIRST
+    (40) Prim -> . REST
+    (41) Prim -> . ARITY
+
+    IF              shift and go to state 5
+    LET             shift and go to state 6
+    MAP             shift and go to state 7
+    PLUS            shift and go to state 3
+    MINUS           shift and go to state 4
+    TILDE           shift and go to state 8
+    INT             shift and go to state 12
+    OP              shift and go to state 10
+    Id              shift and go to state 15
+    EMPTY           shift and go to state 16
+    TRUE            shift and go to state 17
+    FALSE           shift and go to state 18
+    NUMBER_1        shift and go to state 19
+    FUNCTION_1      shift and go to state 20
+    LIST_1          shift and go to state 21
+    EMPTY_1         shift and go to state 22
+    CONS_1          shift and go to state 23
+    CONS            shift and go to state 24
+    FIRST           shift and go to state 25
+    REST            shift and go to state 26
+    ARITY           shift and go to state 27
+
+    Exp                            shift and go to state 1
+    Term                           shift and go to state 2
+    Factor                         shift and go to state 9
+    Empty                          shift and go to state 11
+    Bool                           shift and go to state 13
+    Prim                           shift and go to state 14
+
+state 1
+
+    (0) S' -> Exp .
+
+
+
+state 2
+
+    (1) Exp -> Term .
+    (2) Exp -> Term . PLUS Exp
+    (3) Exp -> Term . MINUS Exp
+    (4) Exp -> Term . OPERATOR Exp
+
+    $end            reduce using rule 1 (Exp -> Term .)
+    THEN            reduce using rule 1 (Exp -> Term .)
+    CP              reduce using rule 1 (Exp -> Term .)
+    COMMA           reduce using rule 1 (Exp -> Term .)
+    ELSE            reduce using rule 1 (Exp -> Term .)
+    SEMICOLON       reduce using rule 1 (Exp -> Term .)
+    PLUS            shift and go to state 28
+    MINUS           shift and go to state 29
+    OPERATOR        shift and go to state 30
+
+
+state 3
+
+    (9) Term -> PLUS . Term
+    (9) Term -> . PLUS Term
+    (10) Term -> . MINUS Term
+    (11) Term -> . TILDE Term
+    (12) Term -> . Factor
+    (13) Term -> . Factor OP ExpList CP
+    (14) Term -> . Factor OP CP
+    (15) Term -> . Empty
+    (16) Term -> . INT
+    (17) Term -> . Bool
+    (18) Factor -> . OP Exp CP
+    (19) Factor -> . Prim
+    (20) Factor -> . Id
+    (30) Empty -> . EMPTY
+    (31) Bool -> . TRUE
+    (32) Bool -> . FALSE
+    (33) Prim -> . NUMBER_1
+    (34) Prim -> . FUNCTION_1
+    (35) Prim -> . LIST_1
+    (36) Prim -> . EMPTY_1
+    (37) Prim -> . CONS_1
+    (38) Prim -> . CONS
+    (39) Prim -> . FIRST
+    (40) Prim -> . REST
+    (41) Prim -> . ARITY
+
+    PLUS            shift and go to state 3
+    MINUS           shift and go to state 4
+    TILDE           shift and go to state 8
+    INT             shift and go to state 12
+    OP              shift and go to state 10
+    Id              shift and go to state 15
+    EMPTY           shift and go to state 16
+    TRUE            shift and go to state 17
+    FALSE           shift and go to state 18
+    NUMBER_1        shift and go to state 19
+    FUNCTION_1      shift and go to state 20
+    LIST_1          shift and go to state 21
+    EMPTY_1         shift and go to state 22
+    CONS_1          shift and go to state 23
+    CONS            shift and go to state 24
+    FIRST           shift and go to state 25
+    REST            shift and go to state 26
+    ARITY           shift and go to state 27
+
+    Term                           shift and go to state 31
+    Factor                         shift and go to state 9
+    Empty                          shift and go to state 11
+    Bool                           shift and go to state 13
+    Prim                           shift and go to state 14
+
+state 4
+
+    (10) Term -> MINUS . Term
+    (9) Term -> . PLUS Term
+    (10) Term -> . MINUS Term
+    (11) Term -> . TILDE Term
+    (12) Term -> . Factor
+    (13) Term -> . Factor OP ExpList CP
+    (14) Term -> . Factor OP CP
+    (15) Term -> . Empty
+    (16) Term -> . INT
+    (17) Term -> . Bool
+    (18) Factor -> . OP Exp CP
+    (19) Factor -> . Prim
+    (20) Factor -> . Id
+    (30) Empty -> . EMPTY
+    (31) Bool -> . TRUE
+    (32) Bool -> . FALSE
+    (33) Prim -> . NUMBER_1
+    (34) Prim -> . FUNCTION_1
+    (35) Prim -> . LIST_1
+    (36) Prim -> . EMPTY_1
+    (37) Prim -> . CONS_1
+    (38) Prim -> . CONS
+    (39) Prim -> . FIRST
+    (40) Prim -> . REST
+    (41) Prim -> . ARITY
+
+    PLUS            shift and go to state 3
+    MINUS           shift and go to state 4
+    TILDE           shift and go to state 8
+    INT             shift and go to state 12
+    OP              shift and go to state 10
+    Id              shift and go to state 15
+    EMPTY           shift and go to state 16
+    TRUE            shift and go to state 17
+    FALSE           shift and go to state 18
+    NUMBER_1        shift and go to state 19
+    FUNCTION_1      shift and go to state 20
+    LIST_1          shift and go to state 21
+    EMPTY_1         shift and go to state 22
+    CONS_1          shift and go to state 23
+    CONS            shift and go to state 24
+    FIRST           shift and go to state 25
+    REST            shift and go to state 26
+    ARITY           shift and go to state 27
+
+    Term                           shift and go to state 32
+    Factor                         shift and go to state 9
+    Empty                          shift and go to state 11
+    Bool                           shift and go to state 13
+    Prim                           shift and go to state 14
+
+state 5
+
+    (5) Exp -> IF . Exp THEN Exp ELSE Exp
+    (1) Exp -> . Term
+    (2) Exp -> . Term PLUS Exp
+    (3) Exp -> . Term MINUS Exp
+    (4) Exp -> . Term OPERATOR Exp
+    (5) Exp -> . IF Exp THEN Exp ELSE Exp
+    (6) Exp -> . LET DefList IN Exp
+    (7) Exp -> . MAP IdList TO Exp
+    (8) Exp -> . MAP TO Exp
+    (9) Term -> . PLUS Term
+    (10) Term -> . MINUS Term
+    (11) Term -> . TILDE Term
+    (12) Term -> . Factor
+    (13) Term -> . Factor OP ExpList CP
+    (14) Term -> . Factor OP CP
+    (15) Term -> . Empty
+    (16) Term -> . INT
+    (17) Term -> . Bool
+    (18) Factor -> . OP Exp CP
+    (19) Factor -> . Prim
+    (20) Factor -> . Id
+    (30) Empty -> . EMPTY
+    (31) Bool -> . TRUE
+    (32) Bool -> . FALSE
+    (33) Prim -> . NUMBER_1
+    (34) Prim -> . FUNCTION_1
+    (35) Prim -> . LIST_1
+    (36) Prim -> . EMPTY_1
+    (37) Prim -> . CONS_1
+    (38) Prim -> . CONS
+    (39) Prim -> . FIRST
+    (40) Prim -> . REST
+    (41) Prim -> . ARITY
+
+    IF              shift and go to state 5
+    LET             shift and go to state 6
+    MAP             shift and go to state 7
+    PLUS            shift and go to state 3
+    MINUS           shift and go to state 4
+    TILDE           shift and go to state 8
+    INT             shift and go to state 12
+    OP              shift and go to state 10
+    Id              shift and go to state 15
+    EMPTY           shift and go to state 16
+    TRUE            shift and go to state 17
+    FALSE           shift and go to state 18
+    NUMBER_1        shift and go to state 19
+    FUNCTION_1      shift and go to state 20
+    LIST_1          shift and go to state 21
+    EMPTY_1         shift and go to state 22
+    CONS_1          shift and go to state 23
+    CONS            shift and go to state 24
+    FIRST           shift and go to state 25
+    REST            shift and go to state 26
+    ARITY           shift and go to state 27
+
+    Exp                            shift and go to state 33
+    Term                           shift and go to state 2
+    Factor                         shift and go to state 9
+    Empty                          shift and go to state 11
+    Bool                           shift and go to state 13
+    Prim                           shift and go to state 14
+
+state 6
+
+    (6) Exp -> LET . DefList IN Exp
+    (28) DefList -> . Def DefList
+    (29) DefList -> . Def
+    (27) Def -> . Id ASSIGN Exp SEMICOLON
+
+    Id              shift and go to state 36
+
+    DefList                        shift and go to state 34
+    Def                            shift and go to state 35
+
+state 7
+
+    (7) Exp -> MAP . IdList TO Exp
+    (8) Exp -> MAP . TO Exp
+    (24) IdList -> . PropIdList
+    (25) PropIdList -> . Id
+    (26) PropIdList -> . Id COMMA PropIdList
+
+    TO              shift and go to state 38
+    Id              shift and go to state 40
+
+    IdList                         shift and go to state 37
+    PropIdList                     shift and go to state 39
+
+state 8
+
+    (11) Term -> TILDE . Term
+    (9) Term -> . PLUS Term
+    (10) Term -> . MINUS Term
+    (11) Term -> . TILDE Term
+    (12) Term -> . Factor
+    (13) Term -> . Factor OP ExpList CP
+    (14) Term -> . Factor OP CP
+    (15) Term -> . Empty
+    (16) Term -> . INT
+    (17) Term -> . Bool
+    (18) Factor -> . OP Exp CP
+    (19) Factor -> . Prim
+    (20) Factor -> . Id
+    (30) Empty -> . EMPTY
+    (31) Bool -> . TRUE
+    (32) Bool -> . FALSE
+    (33) Prim -> . NUMBER_1
+    (34) Prim -> . FUNCTION_1
+    (35) Prim -> . LIST_1
+    (36) Prim -> . EMPTY_1
+    (37) Prim -> . CONS_1
+    (38) Prim -> . CONS
+    (39) Prim -> . FIRST
+    (40) Prim -> . REST
+    (41) Prim -> . ARITY
+
+    PLUS            shift and go to state 3
+    MINUS           shift and go to state 4
+    TILDE           shift and go to state 8
+    INT             shift and go to state 12
+    OP              shift and go to state 10
+    Id              shift and go to state 15
+    EMPTY           shift and go to state 16
+    TRUE            shift and go to state 17
+    FALSE           shift and go to state 18
+    NUMBER_1        shift and go to state 19
+    FUNCTION_1      shift and go to state 20
+    LIST_1          shift and go to state 21
+    EMPTY_1         shift and go to state 22
+    CONS_1          shift and go to state 23
+    CONS            shift and go to state 24
+    FIRST           shift and go to state 25
+    REST            shift and go to state 26
+    ARITY           shift and go to state 27
+
+    Term                           shift and go to state 41
+    Factor                         shift and go to state 9
+    Empty                          shift and go to state 11
+    Bool                           shift and go to state 13
+    Prim                           shift and go to state 14
+
+state 9
+
+    (12) Term -> Factor .
+    (13) Term -> Factor . OP ExpList CP
+    (14) Term -> Factor . OP CP
+
+    PLUS            reduce using rule 12 (Term -> Factor .)
+    MINUS           reduce using rule 12 (Term -> Factor .)
+    OPERATOR        reduce using rule 12 (Term -> Factor .)
+    $end            reduce using rule 12 (Term -> Factor .)
+    THEN            reduce using rule 12 (Term -> Factor .)
+    CP              reduce using rule 12 (Term -> Factor .)
+    COMMA           reduce using rule 12 (Term -> Factor .)
+    ELSE            reduce using rule 12 (Term -> Factor .)
+    SEMICOLON       reduce using rule 12 (Term -> Factor .)
+    OP              shift and go to state 42
+
+
+state 10
+
+    (18) Factor -> OP . Exp CP
+    (1) Exp -> . Term
+    (2) Exp -> . Term PLUS Exp
+    (3) Exp -> . Term MINUS Exp
+    (4) Exp -> . Term OPERATOR Exp
+    (5) Exp -> . IF Exp THEN Exp ELSE Exp
+    (6) Exp -> . LET DefList IN Exp
+    (7) Exp -> . MAP IdList TO Exp
+    (8) Exp -> . MAP TO Exp
+    (9) Term -> . PLUS Term
+    (10) Term -> . MINUS Term
+    (11) Term -> . TILDE Term
+    (12) Term -> . Factor
+    (13) Term -> . Factor OP ExpList CP
+    (14) Term -> . Factor OP CP
+    (15) Term -> . Empty
+    (16) Term -> . INT
+    (17) Term -> . Bool
+    (18) Factor -> . OP Exp CP
+    (19) Factor -> . Prim
+    (20) Factor -> . Id
+    (30) Empty -> . EMPTY
+    (31) Bool -> . TRUE
+    (32) Bool -> . FALSE
+    (33) Prim -> . NUMBER_1
+    (34) Prim -> . FUNCTION_1
+    (35) Prim -> . LIST_1
+    (36) Prim -> . EMPTY_1
+    (37) Prim -> . CONS_1
+    (38) Prim -> . CONS
+    (39) Prim -> . FIRST
+    (40) Prim -> . REST
+    (41) Prim -> . ARITY
+
+    IF              shift and go to state 5
+    LET             shift and go to state 6
+    MAP             shift and go to state 7
+    PLUS            shift and go to state 3
+    MINUS           shift and go to state 4
+    TILDE           shift and go to state 8
+    INT             shift and go to state 12
+    OP              shift and go to state 10
+    Id              shift and go to state 15
+    EMPTY           shift and go to state 16
+    TRUE            shift and go to state 17
+    FALSE           shift and go to state 18
+    NUMBER_1        shift and go to state 19
+    FUNCTION_1      shift and go to state 20
+    LIST_1          shift and go to state 21
+    EMPTY_1         shift and go to state 22
+    CONS_1          shift and go to state 23
+    CONS            shift and go to state 24
+    FIRST           shift and go to state 25
+    REST            shift and go to state 26
+    ARITY           shift and go to state 27
+
+    Exp                            shift and go to state 43
+    Term                           shift and go to state 2
+    Factor                         shift and go to state 9
+    Empty                          shift and go to state 11
+    Bool                           shift and go to state 13
+    Prim                           shift and go to state 14
+
+state 11
+
+    (15) Term -> Empty .
+
+    PLUS            reduce using rule 15 (Term -> Empty .)
+    MINUS           reduce using rule 15 (Term -> Empty .)
+    OPERATOR        reduce using rule 15 (Term -> Empty .)
+    $end            reduce using rule 15 (Term -> Empty .)
+    THEN            reduce using rule 15 (Term -> Empty .)
+    CP              reduce using rule 15 (Term -> Empty .)
+    COMMA           reduce using rule 15 (Term -> Empty .)
+    ELSE            reduce using rule 15 (Term -> Empty .)
+    SEMICOLON       reduce using rule 15 (Term -> Empty .)
+
+
+state 12
+
+    (16) Term -> INT .
+
+    PLUS            reduce using rule 16 (Term -> INT .)
+    MINUS           reduce using rule 16 (Term -> INT .)
+    OPERATOR        reduce using rule 16 (Term -> INT .)
+    $end            reduce using rule 16 (Term -> INT .)
+    THEN            reduce using rule 16 (Term -> INT .)
+    CP              reduce using rule 16 (Term -> INT .)
+    COMMA           reduce using rule 16 (Term -> INT .)
+    ELSE            reduce using rule 16 (Term -> INT .)
+    SEMICOLON       reduce using rule 16 (Term -> INT .)
+
+
+state 13
+
+    (17) Term -> Bool .
+
+    PLUS            reduce using rule 17 (Term -> Bool .)
+    MINUS           reduce using rule 17 (Term -> Bool .)
+    OPERATOR        reduce using rule 17 (Term -> Bool .)
+    $end            reduce using rule 17 (Term -> Bool .)
+    THEN            reduce using rule 17 (Term -> Bool .)
+    CP              reduce using rule 17 (Term -> Bool .)
+    COMMA           reduce using rule 17 (Term -> Bool .)
+    ELSE            reduce using rule 17 (Term -> Bool .)
+    SEMICOLON       reduce using rule 17 (Term -> Bool .)
+
+
+state 14
+
+    (19) Factor -> Prim .
+
+    OP              reduce using rule 19 (Factor -> Prim .)
+    PLUS            reduce using rule 19 (Factor -> Prim .)
+    MINUS           reduce using rule 19 (Factor -> Prim .)
+    OPERATOR        reduce using rule 19 (Factor -> Prim .)
+    $end            reduce using rule 19 (Factor -> Prim .)
+    THEN            reduce using rule 19 (Factor -> Prim .)
+    CP              reduce using rule 19 (Factor -> Prim .)
+    COMMA           reduce using rule 19 (Factor -> Prim .)
+    ELSE            reduce using rule 19 (Factor -> Prim .)
+    SEMICOLON       reduce using rule 19 (Factor -> Prim .)
+
+
+state 15
+
+    (20) Factor -> Id .
+
+    OP              reduce using rule 20 (Factor -> Id .)
+    PLUS            reduce using rule 20 (Factor -> Id .)
+    MINUS           reduce using rule 20 (Factor -> Id .)
+    OPERATOR        reduce using rule 20 (Factor -> Id .)
+    $end            reduce using rule 20 (Factor -> Id .)
+    THEN            reduce using rule 20 (Factor -> Id .)
+    CP              reduce using rule 20 (Factor -> Id .)
+    COMMA           reduce using rule 20 (Factor -> Id .)
+    ELSE            reduce using rule 20 (Factor -> Id .)
+    SEMICOLON       reduce using rule 20 (Factor -> Id .)
+
+
+state 16
+
+    (30) Empty -> EMPTY .
+
+    PLUS            reduce using rule 30 (Empty -> EMPTY .)
+    MINUS           reduce using rule 30 (Empty -> EMPTY .)
+    OPERATOR        reduce using rule 30 (Empty -> EMPTY .)
+    $end            reduce using rule 30 (Empty -> EMPTY .)
+    THEN            reduce using rule 30 (Empty -> EMPTY .)
+    CP              reduce using rule 30 (Empty -> EMPTY .)
+    COMMA           reduce using rule 30 (Empty -> EMPTY .)
+    ELSE            reduce using rule 30 (Empty -> EMPTY .)
+    SEMICOLON       reduce using rule 30 (Empty -> EMPTY .)
+
+
+state 17
+
+    (31) Bool -> TRUE .
+
+    PLUS            reduce using rule 31 (Bool -> TRUE .)
+    MINUS           reduce using rule 31 (Bool -> TRUE .)
+    OPERATOR        reduce using rule 31 (Bool -> TRUE .)
+    $end            reduce using rule 31 (Bool -> TRUE .)
+    THEN            reduce using rule 31 (Bool -> TRUE .)
+    CP              reduce using rule 31 (Bool -> TRUE .)
+    COMMA           reduce using rule 31 (Bool -> TRUE .)
+    ELSE            reduce using rule 31 (Bool -> TRUE .)
+    SEMICOLON       reduce using rule 31 (Bool -> TRUE .)
+
+
+state 18
+
+    (32) Bool -> FALSE .
+
+    PLUS            reduce using rule 32 (Bool -> FALSE .)
+    MINUS           reduce using rule 32 (Bool -> FALSE .)
+    OPERATOR        reduce using rule 32 (Bool -> FALSE .)
+    $end            reduce using rule 32 (Bool -> FALSE .)
+    THEN            reduce using rule 32 (Bool -> FALSE .)
+    CP              reduce using rule 32 (Bool -> FALSE .)
+    COMMA           reduce using rule 32 (Bool -> FALSE .)
+    ELSE            reduce using rule 32 (Bool -> FALSE .)
+    SEMICOLON       reduce using rule 32 (Bool -> FALSE .)
+
+
+state 19
+
+    (33) Prim -> NUMBER_1 .
+
+    OP              reduce using rule 33 (Prim -> NUMBER_1 .)
+    PLUS            reduce using rule 33 (Prim -> NUMBER_1 .)
+    MINUS           reduce using rule 33 (Prim -> NUMBER_1 .)
+    OPERATOR        reduce using rule 33 (Prim -> NUMBER_1 .)
+    $end            reduce using rule 33 (Prim -> NUMBER_1 .)
+    THEN            reduce using rule 33 (Prim -> NUMBER_1 .)
+    CP              reduce using rule 33 (Prim -> NUMBER_1 .)
+    COMMA           reduce using rule 33 (Prim -> NUMBER_1 .)
+    ELSE            reduce using rule 33 (Prim -> NUMBER_1 .)
+    SEMICOLON       reduce using rule 33 (Prim -> NUMBER_1 .)
+
+
+state 20
+
+    (34) Prim -> FUNCTION_1 .
+
+    OP              reduce using rule 34 (Prim -> FUNCTION_1 .)
+    PLUS            reduce using rule 34 (Prim -> FUNCTION_1 .)
+    MINUS           reduce using rule 34 (Prim -> FUNCTION_1 .)
+    OPERATOR        reduce using rule 34 (Prim -> FUNCTION_1 .)
+    $end            reduce using rule 34 (Prim -> FUNCTION_1 .)
+    THEN            reduce using rule 34 (Prim -> FUNCTION_1 .)
+    CP              reduce using rule 34 (Prim -> FUNCTION_1 .)
+    COMMA           reduce using rule 34 (Prim -> FUNCTION_1 .)
+    ELSE            reduce using rule 34 (Prim -> FUNCTION_1 .)
+    SEMICOLON       reduce using rule 34 (Prim -> FUNCTION_1 .)
+
+
+state 21
+
+    (35) Prim -> LIST_1 .
+
+    OP              reduce using rule 35 (Prim -> LIST_1 .)
+    PLUS            reduce using rule 35 (Prim -> LIST_1 .)
+    MINUS           reduce using rule 35 (Prim -> LIST_1 .)
+    OPERATOR        reduce using rule 35 (Prim -> LIST_1 .)
+    $end            reduce using rule 35 (Prim -> LIST_1 .)
+    THEN            reduce using rule 35 (Prim -> LIST_1 .)
+    CP              reduce using rule 35 (Prim -> LIST_1 .)
+    COMMA           reduce using rule 35 (Prim -> LIST_1 .)
+    ELSE            reduce using rule 35 (Prim -> LIST_1 .)
+    SEMICOLON       reduce using rule 35 (Prim -> LIST_1 .)
+
+
+state 22
+
+    (36) Prim -> EMPTY_1 .
+
+    OP              reduce using rule 36 (Prim -> EMPTY_1 .)
+    PLUS            reduce using rule 36 (Prim -> EMPTY_1 .)
+    MINUS           reduce using rule 36 (Prim -> EMPTY_1 .)
+    OPERATOR        reduce using rule 36 (Prim -> EMPTY_1 .)
+    $end            reduce using rule 36 (Prim -> EMPTY_1 .)
+    THEN            reduce using rule 36 (Prim -> EMPTY_1 .)
+    CP              reduce using rule 36 (Prim -> EMPTY_1 .)
+    COMMA           reduce using rule 36 (Prim -> EMPTY_1 .)
+    ELSE            reduce using rule 36 (Prim -> EMPTY_1 .)
+    SEMICOLON       reduce using rule 36 (Prim -> EMPTY_1 .)
+
+
+state 23
+
+    (37) Prim -> CONS_1 .
+
+    OP              reduce using rule 37 (Prim -> CONS_1 .)
+    PLUS            reduce using rule 37 (Prim -> CONS_1 .)
+    MINUS           reduce using rule 37 (Prim -> CONS_1 .)
+    OPERATOR        reduce using rule 37 (Prim -> CONS_1 .)
+    $end            reduce using rule 37 (Prim -> CONS_1 .)
+    THEN            reduce using rule 37 (Prim -> CONS_1 .)
+    CP              reduce using rule 37 (Prim -> CONS_1 .)
+    COMMA           reduce using rule 37 (Prim -> CONS_1 .)
+    ELSE            reduce using rule 37 (Prim -> CONS_1 .)
+    SEMICOLON       reduce using rule 37 (Prim -> CONS_1 .)
+
+
+state 24
+
+    (38) Prim -> CONS .
+
+    OP              reduce using rule 38 (Prim -> CONS .)
+    PLUS            reduce using rule 38 (Prim -> CONS .)
+    MINUS           reduce using rule 38 (Prim -> CONS .)
+    OPERATOR        reduce using rule 38 (Prim -> CONS .)
+    $end            reduce using rule 38 (Prim -> CONS .)
+    THEN            reduce using rule 38 (Prim -> CONS .)
+    CP              reduce using rule 38 (Prim -> CONS .)
+    COMMA           reduce using rule 38 (Prim -> CONS .)
+    ELSE            reduce using rule 38 (Prim -> CONS .)
+    SEMICOLON       reduce using rule 38 (Prim -> CONS .)
+
+
+state 25
+
+    (39) Prim -> FIRST .
+
+    OP              reduce using rule 39 (Prim -> FIRST .)
+    PLUS            reduce using rule 39 (Prim -> FIRST .)
+    MINUS           reduce using rule 39 (Prim -> FIRST .)
+    OPERATOR        reduce using rule 39 (Prim -> FIRST .)
+    $end            reduce using rule 39 (Prim -> FIRST .)
+    THEN            reduce using rule 39 (Prim -> FIRST .)
+    CP              reduce using rule 39 (Prim -> FIRST .)
+    COMMA           reduce using rule 39 (Prim -> FIRST .)
+    ELSE            reduce using rule 39 (Prim -> FIRST .)
+    SEMICOLON       reduce using rule 39 (Prim -> FIRST .)
+
+
+state 26
+
+    (40) Prim -> REST .
+
+    OP              reduce using rule 40 (Prim -> REST .)
+    PLUS            reduce using rule 40 (Prim -> REST .)
+    MINUS           reduce using rule 40 (Prim -> REST .)
+    OPERATOR        reduce using rule 40 (Prim -> REST .)
+    $end            reduce using rule 40 (Prim -> REST .)
+    THEN            reduce using rule 40 (Prim -> REST .)
+    CP              reduce using rule 40 (Prim -> REST .)
+    COMMA           reduce using rule 40 (Prim -> REST .)
+    ELSE            reduce using rule 40 (Prim -> REST .)
+    SEMICOLON       reduce using rule 40 (Prim -> REST .)
+
+
+state 27
+
+    (41) Prim -> ARITY .
+
+    OP              reduce using rule 41 (Prim -> ARITY .)
+    PLUS            reduce using rule 41 (Prim -> ARITY .)
+    MINUS           reduce using rule 41 (Prim -> ARITY .)
+    OPERATOR        reduce using rule 41 (Prim -> ARITY .)
+    $end            reduce using rule 41 (Prim -> ARITY .)
+    THEN            reduce using rule 41 (Prim -> ARITY .)
+    CP              reduce using rule 41 (Prim -> ARITY .)
+    COMMA           reduce using rule 41 (Prim -> ARITY .)
+    ELSE            reduce using rule 41 (Prim -> ARITY .)
+    SEMICOLON       reduce using rule 41 (Prim -> ARITY .)
+
+
+state 28
+
+    (2) Exp -> Term PLUS . Exp
+    (1) Exp -> . Term
+    (2) Exp -> . Term PLUS Exp
+    (3) Exp -> . Term MINUS Exp
+    (4) Exp -> . Term OPERATOR Exp
+    (5) Exp -> . IF Exp THEN Exp ELSE Exp
+    (6) Exp -> . LET DefList IN Exp
+    (7) Exp -> . MAP IdList TO Exp
+    (8) Exp -> . MAP TO Exp
+    (9) Term -> . PLUS Term
+    (10) Term -> . MINUS Term
+    (11) Term -> . TILDE Term
+    (12) Term -> . Factor
+    (13) Term -> . Factor OP ExpList CP
+    (14) Term -> . Factor OP CP
+    (15) Term -> . Empty
+    (16) Term -> . INT
+    (17) Term -> . Bool
+    (18) Factor -> . OP Exp CP
+    (19) Factor -> . Prim
+    (20) Factor -> . Id
+    (30) Empty -> . EMPTY
+    (31) Bool -> . TRUE
+    (32) Bool -> . FALSE
+    (33) Prim -> . NUMBER_1
+    (34) Prim -> . FUNCTION_1
+    (35) Prim -> . LIST_1
+    (36) Prim -> . EMPTY_1
+    (37) Prim -> . CONS_1
+    (38) Prim -> . CONS
+    (39) Prim -> . FIRST
+    (40) Prim -> . REST
+    (41) Prim -> . ARITY
+
+    IF              shift and go to state 5
+    LET             shift and go to state 6
+    MAP             shift and go to state 7
+    PLUS            shift and go to state 3
+    MINUS           shift and go to state 4
+    TILDE           shift and go to state 8
+    INT             shift and go to state 12
+    OP              shift and go to state 10
+    Id              shift and go to state 15
+    EMPTY           shift and go to state 16
+    TRUE            shift and go to state 17
+    FALSE           shift and go to state 18
+    NUMBER_1        shift and go to state 19
+    FUNCTION_1      shift and go to state 20
+    LIST_1          shift and go to state 21
+    EMPTY_1         shift and go to state 22
+    CONS_1          shift and go to state 23
+    CONS            shift and go to state 24
+    FIRST           shift and go to state 25
+    REST            shift and go to state 26
+    ARITY           shift and go to state 27
+
+    Term                           shift and go to state 2
+    Exp                            shift and go to state 44
+    Factor                         shift and go to state 9
+    Empty                          shift and go to state 11
+    Bool                           shift and go to state 13
+    Prim                           shift and go to state 14
+
+state 29
+
+    (3) Exp -> Term MINUS . Exp
+    (1) Exp -> . Term
+    (2) Exp -> . Term PLUS Exp
+    (3) Exp -> . Term MINUS Exp
+    (4) Exp -> . Term OPERATOR Exp
+    (5) Exp -> . IF Exp THEN Exp ELSE Exp
+    (6) Exp -> . LET DefList IN Exp
+    (7) Exp -> . MAP IdList TO Exp
+    (8) Exp -> . MAP TO Exp
+    (9) Term -> . PLUS Term
+    (10) Term -> . MINUS Term
+    (11) Term -> . TILDE Term
+    (12) Term -> . Factor
+    (13) Term -> . Factor OP ExpList CP
+    (14) Term -> . Factor OP CP
+    (15) Term -> . Empty
+    (16) Term -> . INT
+    (17) Term -> . Bool
+    (18) Factor -> . OP Exp CP
+    (19) Factor -> . Prim
+    (20) Factor -> . Id
+    (30) Empty -> . EMPTY
+    (31) Bool -> . TRUE
+    (32) Bool -> . FALSE
+    (33) Prim -> . NUMBER_1
+    (34) Prim -> . FUNCTION_1
+    (35) Prim -> . LIST_1
+    (36) Prim -> . EMPTY_1
+    (37) Prim -> . CONS_1
+    (38) Prim -> . CONS
+    (39) Prim -> . FIRST
+    (40) Prim -> . REST
+    (41) Prim -> . ARITY
+
+    IF              shift and go to state 5
+    LET             shift and go to state 6
+    MAP             shift and go to state 7
+    PLUS            shift and go to state 3
+    MINUS           shift and go to state 4
+    TILDE           shift and go to state 8
+    INT             shift and go to state 12
+    OP              shift and go to state 10
+    Id              shift and go to state 15
+    EMPTY           shift and go to state 16
+    TRUE            shift and go to state 17
+    FALSE           shift and go to state 18
+    NUMBER_1        shift and go to state 19
+    FUNCTION_1      shift and go to state 20
+    LIST_1          shift and go to state 21
+    EMPTY_1         shift and go to state 22
+    CONS_1          shift and go to state 23
+    CONS            shift and go to state 24
+    FIRST           shift and go to state 25
+    REST            shift and go to state 26
+    ARITY           shift and go to state 27
+
+    Term                           shift and go to state 2
+    Exp                            shift and go to state 45
+    Factor                         shift and go to state 9
+    Empty                          shift and go to state 11
+    Bool                           shift and go to state 13
+    Prim                           shift and go to state 14
+
+state 30
+
+    (4) Exp -> Term OPERATOR . Exp
+    (1) Exp -> . Term
+    (2) Exp -> . Term PLUS Exp
+    (3) Exp -> . Term MINUS Exp
+    (4) Exp -> . Term OPERATOR Exp
+    (5) Exp -> . IF Exp THEN Exp ELSE Exp
+    (6) Exp -> . LET DefList IN Exp
+    (7) Exp -> . MAP IdList TO Exp
+    (8) Exp -> . MAP TO Exp
+    (9) Term -> . PLUS Term
+    (10) Term -> . MINUS Term
+    (11) Term -> . TILDE Term
+    (12) Term -> . Factor
+    (13) Term -> . Factor OP ExpList CP
+    (14) Term -> . Factor OP CP
+    (15) Term -> . Empty
+    (16) Term -> . INT
+    (17) Term -> . Bool
+    (18) Factor -> . OP Exp CP
+    (19) Factor -> . Prim
+    (20) Factor -> . Id
+    (30) Empty -> . EMPTY
+    (31) Bool -> . TRUE
+    (32) Bool -> . FALSE
+    (33) Prim -> . NUMBER_1
+    (34) Prim -> . FUNCTION_1
+    (35) Prim -> . LIST_1
+    (36) Prim -> . EMPTY_1
+    (37) Prim -> . CONS_1
+    (38) Prim -> . CONS
+    (39) Prim -> . FIRST
+    (40) Prim -> . REST
+    (41) Prim -> . ARITY
+
+    IF              shift and go to state 5
+    LET             shift and go to state 6
+    MAP             shift and go to state 7
+    PLUS            shift and go to state 3
+    MINUS           shift and go to state 4
+    TILDE           shift and go to state 8
+    INT             shift and go to state 12
+    OP              shift and go to state 10
+    Id              shift and go to state 15
+    EMPTY           shift and go to state 16
+    TRUE            shift and go to state 17
+    FALSE           shift and go to state 18
+    NUMBER_1        shift and go to state 19
+    FUNCTION_1      shift and go to state 20
+    LIST_1          shift and go to state 21
+    EMPTY_1         shift and go to state 22
+    CONS_1          shift and go to state 23
+    CONS            shift and go to state 24
+    FIRST           shift and go to state 25
+    REST            shift and go to state 26
+    ARITY           shift and go to state 27
+
+    Term                           shift and go to state 2
+    Exp                            shift and go to state 46
+    Factor                         shift and go to state 9
+    Empty                          shift and go to state 11
+    Bool                           shift and go to state 13
+    Prim                           shift and go to state 14
+
+state 31
+
+    (9) Term -> PLUS Term .
+
+    PLUS            reduce using rule 9 (Term -> PLUS Term .)
+    MINUS           reduce using rule 9 (Term -> PLUS Term .)
+    OPERATOR        reduce using rule 9 (Term -> PLUS Term .)
+    $end            reduce using rule 9 (Term -> PLUS Term .)
+    THEN            reduce using rule 9 (Term -> PLUS Term .)
+    CP              reduce using rule 9 (Term -> PLUS Term .)
+    COMMA           reduce using rule 9 (Term -> PLUS Term .)
+    ELSE            reduce using rule 9 (Term -> PLUS Term .)
+    SEMICOLON       reduce using rule 9 (Term -> PLUS Term .)
+
+
+state 32
+
+    (10) Term -> MINUS Term .
+
+    PLUS            reduce using rule 10 (Term -> MINUS Term .)
+    MINUS           reduce using rule 10 (Term -> MINUS Term .)
+    OPERATOR        reduce using rule 10 (Term -> MINUS Term .)
+    $end            reduce using rule 10 (Term -> MINUS Term .)
+    THEN            reduce using rule 10 (Term -> MINUS Term .)
+    CP              reduce using rule 10 (Term -> MINUS Term .)
+    COMMA           reduce using rule 10 (Term -> MINUS Term .)
+    ELSE            reduce using rule 10 (Term -> MINUS Term .)
+    SEMICOLON       reduce using rule 10 (Term -> MINUS Term .)
+
+
+state 33
+
+    (5) Exp -> IF Exp . THEN Exp ELSE Exp
+
+    THEN            shift and go to state 47
+
+
+state 34
+
+    (6) Exp -> LET DefList . IN Exp
+
+    IN              shift and go to state 48
+
+
+state 35
+
+    (28) DefList -> Def . DefList
+    (29) DefList -> Def .
+    (28) DefList -> . Def DefList
+    (29) DefList -> . Def
+    (27) Def -> . Id ASSIGN Exp SEMICOLON
+
+    IN              reduce using rule 29 (DefList -> Def .)
+    Id              shift and go to state 36
+
+    Def                            shift and go to state 35
+    DefList                        shift and go to state 49
+
+state 36
+
+    (27) Def -> Id . ASSIGN Exp SEMICOLON
+
+    ASSIGN          shift and go to state 50
+
+
+state 37
+
+    (7) Exp -> MAP IdList . TO Exp
+
+    TO              shift and go to state 51
+
+
+state 38
+
+    (8) Exp -> MAP TO . Exp
+    (1) Exp -> . Term
+    (2) Exp -> . Term PLUS Exp
+    (3) Exp -> . Term MINUS Exp
+    (4) Exp -> . Term OPERATOR Exp
+    (5) Exp -> . IF Exp THEN Exp ELSE Exp
+    (6) Exp -> . LET DefList IN Exp
+    (7) Exp -> . MAP IdList TO Exp
+    (8) Exp -> . MAP TO Exp
+    (9) Term -> . PLUS Term
+    (10) Term -> . MINUS Term
+    (11) Term -> . TILDE Term
+    (12) Term -> . Factor
+    (13) Term -> . Factor OP ExpList CP
+    (14) Term -> . Factor OP CP
+    (15) Term -> . Empty
+    (16) Term -> . INT
+    (17) Term -> . Bool
+    (18) Factor -> . OP Exp CP
+    (19) Factor -> . Prim
+    (20) Factor -> . Id
+    (30) Empty -> . EMPTY
+    (31) Bool -> . TRUE
+    (32) Bool -> . FALSE
+    (33) Prim -> . NUMBER_1
+    (34) Prim -> . FUNCTION_1
+    (35) Prim -> . LIST_1
+    (36) Prim -> . EMPTY_1
+    (37) Prim -> . CONS_1
+    (38) Prim -> . CONS
+    (39) Prim -> . FIRST
+    (40) Prim -> . REST
+    (41) Prim -> . ARITY
+
+    IF              shift and go to state 5
+    LET             shift and go to state 6
+    MAP             shift and go to state 7
+    PLUS            shift and go to state 3
+    MINUS           shift and go to state 4
+    TILDE           shift and go to state 8
+    INT             shift and go to state 12
+    OP              shift and go to state 10
+    Id              shift and go to state 15
+    EMPTY           shift and go to state 16
+    TRUE            shift and go to state 17
+    FALSE           shift and go to state 18
+    NUMBER_1        shift and go to state 19
+    FUNCTION_1      shift and go to state 20
+    LIST_1          shift and go to state 21
+    EMPTY_1         shift and go to state 22
+    CONS_1          shift and go to state 23
+    CONS            shift and go to state 24
+    FIRST           shift and go to state 25
+    REST            shift and go to state 26
+    ARITY           shift and go to state 27
+
+    Exp                            shift and go to state 52
+    Term                           shift and go to state 2
+    Factor                         shift and go to state 9
+    Empty                          shift and go to state 11
+    Bool                           shift and go to state 13
+    Prim                           shift and go to state 14
+
+state 39
+
+    (24) IdList -> PropIdList .
+
+    TO              reduce using rule 24 (IdList -> PropIdList .)
+
+
+state 40
+
+    (25) PropIdList -> Id .
+    (26) PropIdList -> Id . COMMA PropIdList
+
+    TO              reduce using rule 25 (PropIdList -> Id .)
+    COMMA           shift and go to state 53
+
+
+state 41
+
+    (11) Term -> TILDE Term .
+
+    PLUS            reduce using rule 11 (Term -> TILDE Term .)
+    MINUS           reduce using rule 11 (Term -> TILDE Term .)
+    OPERATOR        reduce using rule 11 (Term -> TILDE Term .)
+    $end            reduce using rule 11 (Term -> TILDE Term .)
+    THEN            reduce using rule 11 (Term -> TILDE Term .)
+    CP              reduce using rule 11 (Term -> TILDE Term .)
+    COMMA           reduce using rule 11 (Term -> TILDE Term .)
+    ELSE            reduce using rule 11 (Term -> TILDE Term .)
+    SEMICOLON       reduce using rule 11 (Term -> TILDE Term .)
+
+
+state 42
+
+    (13) Term -> Factor OP . ExpList CP
+    (14) Term -> Factor OP . CP
+    (21) ExpList -> . PropExpList
+    (22) PropExpList -> . Exp
+    (23) PropExpList -> . Exp COMMA PropExpList
+    (1) Exp -> . Term
+    (2) Exp -> . Term PLUS Exp
+    (3) Exp -> . Term MINUS Exp
+    (4) Exp -> . Term OPERATOR Exp
+    (5) Exp -> . IF Exp THEN Exp ELSE Exp
+    (6) Exp -> . LET DefList IN Exp
+    (7) Exp -> . MAP IdList TO Exp
+    (8) Exp -> . MAP TO Exp
+    (9) Term -> . PLUS Term
+    (10) Term -> . MINUS Term
+    (11) Term -> . TILDE Term
+    (12) Term -> . Factor
+    (13) Term -> . Factor OP ExpList CP
+    (14) Term -> . Factor OP CP
+    (15) Term -> . Empty
+    (16) Term -> . INT
+    (17) Term -> . Bool
+    (18) Factor -> . OP Exp CP
+    (19) Factor -> . Prim
+    (20) Factor -> . Id
+    (30) Empty -> . EMPTY
+    (31) Bool -> . TRUE
+    (32) Bool -> . FALSE
+    (33) Prim -> . NUMBER_1
+    (34) Prim -> . FUNCTION_1
+    (35) Prim -> . LIST_1
+    (36) Prim -> . EMPTY_1
+    (37) Prim -> . CONS_1
+    (38) Prim -> . CONS
+    (39) Prim -> . FIRST
+    (40) Prim -> . REST
+    (41) Prim -> . ARITY
+
+    CP              shift and go to state 55
+    IF              shift and go to state 5
+    LET             shift and go to state 6
+    MAP             shift and go to state 7
+    PLUS            shift and go to state 3
+    MINUS           shift and go to state 4
+    TILDE           shift and go to state 8
+    INT             shift and go to state 12
+    OP              shift and go to state 10
+    Id              shift and go to state 15
+    EMPTY           shift and go to state 16
+    TRUE            shift and go to state 17
+    FALSE           shift and go to state 18
+    NUMBER_1        shift and go to state 19
+    FUNCTION_1      shift and go to state 20
+    LIST_1          shift and go to state 21
+    EMPTY_1         shift and go to state 22
+    CONS_1          shift and go to state 23
+    CONS            shift and go to state 24
+    FIRST           shift and go to state 25
+    REST            shift and go to state 26
+    ARITY           shift and go to state 27
+
+    Factor                         shift and go to state 9
+    ExpList                        shift and go to state 54
+    PropExpList                    shift and go to state 56
+    Exp                            shift and go to state 57
+    Term                           shift and go to state 2
+    Empty                          shift and go to state 11
+    Bool                           shift and go to state 13
+    Prim                           shift and go to state 14
+
+state 43
+
+    (18) Factor -> OP Exp . CP
+
+    CP              shift and go to state 58
+
+
+state 44
+
+    (2) Exp -> Term PLUS Exp .
+
+    $end            reduce using rule 2 (Exp -> Term PLUS Exp .)
+    THEN            reduce using rule 2 (Exp -> Term PLUS Exp .)
+    CP              reduce using rule 2 (Exp -> Term PLUS Exp .)
+    COMMA           reduce using rule 2 (Exp -> Term PLUS Exp .)
+    ELSE            reduce using rule 2 (Exp -> Term PLUS Exp .)
+    SEMICOLON       reduce using rule 2 (Exp -> Term PLUS Exp .)
+
+
+state 45
+
+    (3) Exp -> Term MINUS Exp .
+
+    $end            reduce using rule 3 (Exp -> Term MINUS Exp .)
+    THEN            reduce using rule 3 (Exp -> Term MINUS Exp .)
+    CP              reduce using rule 3 (Exp -> Term MINUS Exp .)
+    COMMA           reduce using rule 3 (Exp -> Term MINUS Exp .)
+    ELSE            reduce using rule 3 (Exp -> Term MINUS Exp .)
+    SEMICOLON       reduce using rule 3 (Exp -> Term MINUS Exp .)
+
+
+state 46
+
+    (4) Exp -> Term OPERATOR Exp .
+
+    $end            reduce using rule 4 (Exp -> Term OPERATOR Exp .)
+    THEN            reduce using rule 4 (Exp -> Term OPERATOR Exp .)
+    CP              reduce using rule 4 (Exp -> Term OPERATOR Exp .)
+    COMMA           reduce using rule 4 (Exp -> Term OPERATOR Exp .)
+    ELSE            reduce using rule 4 (Exp -> Term OPERATOR Exp .)
+    SEMICOLON       reduce using rule 4 (Exp -> Term OPERATOR Exp .)
+
+
+state 47
+
+    (5) Exp -> IF Exp THEN . Exp ELSE Exp
+    (1) Exp -> . Term
+    (2) Exp -> . Term PLUS Exp
+    (3) Exp -> . Term MINUS Exp
+    (4) Exp -> . Term OPERATOR Exp
+    (5) Exp -> . IF Exp THEN Exp ELSE Exp
+    (6) Exp -> . LET DefList IN Exp
+    (7) Exp -> . MAP IdList TO Exp
+    (8) Exp -> . MAP TO Exp
+    (9) Term -> . PLUS Term
+    (10) Term -> . MINUS Term
+    (11) Term -> . TILDE Term
+    (12) Term -> . Factor
+    (13) Term -> . Factor OP ExpList CP
+    (14) Term -> . Factor OP CP
+    (15) Term -> . Empty
+    (16) Term -> . INT
+    (17) Term -> . Bool
+    (18) Factor -> . OP Exp CP
+    (19) Factor -> . Prim
+    (20) Factor -> . Id
+    (30) Empty -> . EMPTY
+    (31) Bool -> . TRUE
+    (32) Bool -> . FALSE
+    (33) Prim -> . NUMBER_1
+    (34) Prim -> . FUNCTION_1
+    (35) Prim -> . LIST_1
+    (36) Prim -> . EMPTY_1
+    (37) Prim -> . CONS_1
+    (38) Prim -> . CONS
+    (39) Prim -> . FIRST
+    (40) Prim -> . REST
+    (41) Prim -> . ARITY
+
+    IF              shift and go to state 5
+    LET             shift and go to state 6
+    MAP             shift and go to state 7
+    PLUS            shift and go to state 3
+    MINUS           shift and go to state 4
+    TILDE           shift and go to state 8
+    INT             shift and go to state 12
+    OP              shift and go to state 10
+    Id              shift and go to state 15
+    EMPTY           shift and go to state 16
+    TRUE            shift and go to state 17
+    FALSE           shift and go to state 18
+    NUMBER_1        shift and go to state 19
+    FUNCTION_1      shift and go to state 20
+    LIST_1          shift and go to state 21
+    EMPTY_1         shift and go to state 22
+    CONS_1          shift and go to state 23
+    CONS            shift and go to state 24
+    FIRST           shift and go to state 25
+    REST            shift and go to state 26
+    ARITY           shift and go to state 27
+
+    Exp                            shift and go to state 59
+    Term                           shift and go to state 2
+    Factor                         shift and go to state 9
+    Empty                          shift and go to state 11
+    Bool                           shift and go to state 13
+    Prim                           shift and go to state 14
+
+state 48
+
+    (6) Exp -> LET DefList IN . Exp
+    (1) Exp -> . Term
+    (2) Exp -> . Term PLUS Exp
+    (3) Exp -> . Term MINUS Exp
+    (4) Exp -> . Term OPERATOR Exp
+    (5) Exp -> . IF Exp THEN Exp ELSE Exp
+    (6) Exp -> . LET DefList IN Exp
+    (7) Exp -> . MAP IdList TO Exp
+    (8) Exp -> . MAP TO Exp
+    (9) Term -> . PLUS Term
+    (10) Term -> . MINUS Term
+    (11) Term -> . TILDE Term
+    (12) Term -> . Factor
+    (13) Term -> . Factor OP ExpList CP
+    (14) Term -> . Factor OP CP
+    (15) Term -> . Empty
+    (16) Term -> . INT
+    (17) Term -> . Bool
+    (18) Factor -> . OP Exp CP
+    (19) Factor -> . Prim
+    (20) Factor -> . Id
+    (30) Empty -> . EMPTY
+    (31) Bool -> . TRUE
+    (32) Bool -> . FALSE
+    (33) Prim -> . NUMBER_1
+    (34) Prim -> . FUNCTION_1
+    (35) Prim -> . LIST_1
+    (36) Prim -> . EMPTY_1
+    (37) Prim -> . CONS_1
+    (38) Prim -> . CONS
+    (39) Prim -> . FIRST
+    (40) Prim -> . REST
+    (41) Prim -> . ARITY
+
+    IF              shift and go to state 5
+    LET             shift and go to state 6
+    MAP             shift and go to state 7
+    PLUS            shift and go to state 3
+    MINUS           shift and go to state 4
+    TILDE           shift and go to state 8
+    INT             shift and go to state 12
+    OP              shift and go to state 10
+    Id              shift and go to state 15
+    EMPTY           shift and go to state 16
+    TRUE            shift and go to state 17
+    FALSE           shift and go to state 18
+    NUMBER_1        shift and go to state 19
+    FUNCTION_1      shift and go to state 20
+    LIST_1          shift and go to state 21
+    EMPTY_1         shift and go to state 22
+    CONS_1          shift and go to state 23
+    CONS            shift and go to state 24
+    FIRST           shift and go to state 25
+    REST            shift and go to state 26
+    ARITY           shift and go to state 27
+
+    Exp                            shift and go to state 60
+    Term                           shift and go to state 2
+    Factor                         shift and go to state 9
+    Empty                          shift and go to state 11
+    Bool                           shift and go to state 13
+    Prim                           shift and go to state 14
+
+state 49
+
+    (28) DefList -> Def DefList .
+
+    IN              reduce using rule 28 (DefList -> Def DefList .)
+
+
+state 50
+
+    (27) Def -> Id ASSIGN . Exp SEMICOLON
+    (1) Exp -> . Term
+    (2) Exp -> . Term PLUS Exp
+    (3) Exp -> . Term MINUS Exp
+    (4) Exp -> . Term OPERATOR Exp
+    (5) Exp -> . IF Exp THEN Exp ELSE Exp
+    (6) Exp -> . LET DefList IN Exp
+    (7) Exp -> . MAP IdList TO Exp
+    (8) Exp -> . MAP TO Exp
+    (9) Term -> . PLUS Term
+    (10) Term -> . MINUS Term
+    (11) Term -> . TILDE Term
+    (12) Term -> . Factor
+    (13) Term -> . Factor OP ExpList CP
+    (14) Term -> . Factor OP CP
+    (15) Term -> . Empty
+    (16) Term -> . INT
+    (17) Term -> . Bool
+    (18) Factor -> . OP Exp CP
+    (19) Factor -> . Prim
+    (20) Factor -> . Id
+    (30) Empty -> . EMPTY
+    (31) Bool -> . TRUE
+    (32) Bool -> . FALSE
+    (33) Prim -> . NUMBER_1
+    (34) Prim -> . FUNCTION_1
+    (35) Prim -> . LIST_1
+    (36) Prim -> . EMPTY_1
+    (37) Prim -> . CONS_1
+    (38) Prim -> . CONS
+    (39) Prim -> . FIRST
+    (40) Prim -> . REST
+    (41) Prim -> . ARITY
+
+    IF              shift and go to state 5
+    LET             shift and go to state 6
+    MAP             shift and go to state 7
+    PLUS            shift and go to state 3
+    MINUS           shift and go to state 4
+    TILDE           shift and go to state 8
+    INT             shift and go to state 12
+    OP              shift and go to state 10
+    Id              shift and go to state 15
+    EMPTY           shift and go to state 16
+    TRUE            shift and go to state 17
+    FALSE           shift and go to state 18
+    NUMBER_1        shift and go to state 19
+    FUNCTION_1      shift and go to state 20
+    LIST_1          shift and go to state 21
+    EMPTY_1         shift and go to state 22
+    CONS_1          shift and go to state 23
+    CONS            shift and go to state 24
+    FIRST           shift and go to state 25
+    REST            shift and go to state 26
+    ARITY           shift and go to state 27
+
+    Exp                            shift and go to state 61
+    Term                           shift and go to state 2
+    Factor                         shift and go to state 9
+    Empty                          shift and go to state 11
+    Bool                           shift and go to state 13
+    Prim                           shift and go to state 14
+
+state 51
+
+    (7) Exp -> MAP IdList TO . Exp
+    (1) Exp -> . Term
+    (2) Exp -> . Term PLUS Exp
+    (3) Exp -> . Term MINUS Exp
+    (4) Exp -> . Term OPERATOR Exp
+    (5) Exp -> . IF Exp THEN Exp ELSE Exp
+    (6) Exp -> . LET DefList IN Exp
+    (7) Exp -> . MAP IdList TO Exp
+    (8) Exp -> . MAP TO Exp
+    (9) Term -> . PLUS Term
+    (10) Term -> . MINUS Term
+    (11) Term -> . TILDE Term
+    (12) Term -> . Factor
+    (13) Term -> . Factor OP ExpList CP
+    (14) Term -> . Factor OP CP
+    (15) Term -> . Empty
+    (16) Term -> . INT
+    (17) Term -> . Bool
+    (18) Factor -> . OP Exp CP
+    (19) Factor -> . Prim
+    (20) Factor -> . Id
+    (30) Empty -> . EMPTY
+    (31) Bool -> . TRUE
+    (32) Bool -> . FALSE
+    (33) Prim -> . NUMBER_1
+    (34) Prim -> . FUNCTION_1
+    (35) Prim -> . LIST_1
+    (36) Prim -> . EMPTY_1
+    (37) Prim -> . CONS_1
+    (38) Prim -> . CONS
+    (39) Prim -> . FIRST
+    (40) Prim -> . REST
+    (41) Prim -> . ARITY
+
+    IF              shift and go to state 5
+    LET             shift and go to state 6
+    MAP             shift and go to state 7
+    PLUS            shift and go to state 3
+    MINUS           shift and go to state 4
+    TILDE           shift and go to state 8
+    INT             shift and go to state 12
+    OP              shift and go to state 10
+    Id              shift and go to state 15
+    EMPTY           shift and go to state 16
+    TRUE            shift and go to state 17
+    FALSE           shift and go to state 18
+    NUMBER_1        shift and go to state 19
+    FUNCTION_1      shift and go to state 20
+    LIST_1          shift and go to state 21
+    EMPTY_1         shift and go to state 22
+    CONS_1          shift and go to state 23
+    CONS            shift and go to state 24
+    FIRST           shift and go to state 25
+    REST            shift and go to state 26
+    ARITY           shift and go to state 27
+
+    Exp                            shift and go to state 62
+    Term                           shift and go to state 2
+    Factor                         shift and go to state 9
+    Empty                          shift and go to state 11
+    Bool                           shift and go to state 13
+    Prim                           shift and go to state 14
+
+state 52
+
+    (8) Exp -> MAP TO Exp .
+
+    $end            reduce using rule 8 (Exp -> MAP TO Exp .)
+    THEN            reduce using rule 8 (Exp -> MAP TO Exp .)
+    CP              reduce using rule 8 (Exp -> MAP TO Exp .)
+    COMMA           reduce using rule 8 (Exp -> MAP TO Exp .)
+    ELSE            reduce using rule 8 (Exp -> MAP TO Exp .)
+    SEMICOLON       reduce using rule 8 (Exp -> MAP TO Exp .)
+
+
+state 53
+
+    (26) PropIdList -> Id COMMA . PropIdList
+    (25) PropIdList -> . Id
+    (26) PropIdList -> . Id COMMA PropIdList
+
+    Id              shift and go to state 40
+
+    PropIdList                     shift and go to state 63
+
+state 54
+
+    (13) Term -> Factor OP ExpList . CP
+
+    CP              shift and go to state 64
+
+
+state 55
+
+    (14) Term -> Factor OP CP .
+
+    PLUS            reduce using rule 14 (Term -> Factor OP CP .)
+    MINUS           reduce using rule 14 (Term -> Factor OP CP .)
+    OPERATOR        reduce using rule 14 (Term -> Factor OP CP .)
+    $end            reduce using rule 14 (Term -> Factor OP CP .)
+    THEN            reduce using rule 14 (Term -> Factor OP CP .)
+    CP              reduce using rule 14 (Term -> Factor OP CP .)
+    COMMA           reduce using rule 14 (Term -> Factor OP CP .)
+    ELSE            reduce using rule 14 (Term -> Factor OP CP .)
+    SEMICOLON       reduce using rule 14 (Term -> Factor OP CP .)
+
+
+state 56
+
+    (21) ExpList -> PropExpList .
+
+    CP              reduce using rule 21 (ExpList -> PropExpList .)
+
+
+state 57
+
+    (22) PropExpList -> Exp .
+    (23) PropExpList -> Exp . COMMA PropExpList
+
+    CP              reduce using rule 22 (PropExpList -> Exp .)
+    COMMA           shift and go to state 65
+
+
+state 58
+
+    (18) Factor -> OP Exp CP .
+
+    OP              reduce using rule 18 (Factor -> OP Exp CP .)
+    PLUS            reduce using rule 18 (Factor -> OP Exp CP .)
+    MINUS           reduce using rule 18 (Factor -> OP Exp CP .)
+    OPERATOR        reduce using rule 18 (Factor -> OP Exp CP .)
+    $end            reduce using rule 18 (Factor -> OP Exp CP .)
+    THEN            reduce using rule 18 (Factor -> OP Exp CP .)
+    CP              reduce using rule 18 (Factor -> OP Exp CP .)
+    COMMA           reduce using rule 18 (Factor -> OP Exp CP .)
+    ELSE            reduce using rule 18 (Factor -> OP Exp CP .)
+    SEMICOLON       reduce using rule 18 (Factor -> OP Exp CP .)
+
+
+state 59
+
+    (5) Exp -> IF Exp THEN Exp . ELSE Exp
+
+    ELSE            shift and go to state 66
+
+
+state 60
+
+    (6) Exp -> LET DefList IN Exp .
+
+    $end            reduce using rule 6 (Exp -> LET DefList IN Exp .)
+    THEN            reduce using rule 6 (Exp -> LET DefList IN Exp .)
+    CP              reduce using rule 6 (Exp -> LET DefList IN Exp .)
+    COMMA           reduce using rule 6 (Exp -> LET DefList IN Exp .)
+    ELSE            reduce using rule 6 (Exp -> LET DefList IN Exp .)
+    SEMICOLON       reduce using rule 6 (Exp -> LET DefList IN Exp .)
+
+
+state 61
+
+    (27) Def -> Id ASSIGN Exp . SEMICOLON
+
+    SEMICOLON       shift and go to state 67
+
+
+state 62
+
+    (7) Exp -> MAP IdList TO Exp .
+
+    $end            reduce using rule 7 (Exp -> MAP IdList TO Exp .)
+    THEN            reduce using rule 7 (Exp -> MAP IdList TO Exp .)
+    CP              reduce using rule 7 (Exp -> MAP IdList TO Exp .)
+    COMMA           reduce using rule 7 (Exp -> MAP IdList TO Exp .)
+    ELSE            reduce using rule 7 (Exp -> MAP IdList TO Exp .)
+    SEMICOLON       reduce using rule 7 (Exp -> MAP IdList TO Exp .)
+
+
+state 63
+
+    (26) PropIdList -> Id COMMA PropIdList .
+
+    TO              reduce using rule 26 (PropIdList -> Id COMMA PropIdList .)
+
+
+state 64
+
+    (13) Term -> Factor OP ExpList CP .
+
+    PLUS            reduce using rule 13 (Term -> Factor OP ExpList CP .)
+    MINUS           reduce using rule 13 (Term -> Factor OP ExpList CP .)
+    OPERATOR        reduce using rule 13 (Term -> Factor OP ExpList CP .)
+    $end            reduce using rule 13 (Term -> Factor OP ExpList CP .)
+    THEN            reduce using rule 13 (Term -> Factor OP ExpList CP .)
+    CP              reduce using rule 13 (Term -> Factor OP ExpList CP .)
+    COMMA           reduce using rule 13 (Term -> Factor OP ExpList CP .)
+    ELSE            reduce using rule 13 (Term -> Factor OP ExpList CP .)
+    SEMICOLON       reduce using rule 13 (Term -> Factor OP ExpList CP .)
+
+
+state 65
+
+    (23) PropExpList -> Exp COMMA . PropExpList
+    (22) PropExpList -> . Exp
+    (23) PropExpList -> . Exp COMMA PropExpList
+    (1) Exp -> . Term
+    (2) Exp -> . Term PLUS Exp
+    (3) Exp -> . Term MINUS Exp
+    (4) Exp -> . Term OPERATOR Exp
+    (5) Exp -> . IF Exp THEN Exp ELSE Exp
+    (6) Exp -> . LET DefList IN Exp
+    (7) Exp -> . MAP IdList TO Exp
+    (8) Exp -> . MAP TO Exp
+    (9) Term -> . PLUS Term
+    (10) Term -> . MINUS Term
+    (11) Term -> . TILDE Term
+    (12) Term -> . Factor
+    (13) Term -> . Factor OP ExpList CP
+    (14) Term -> . Factor OP CP
+    (15) Term -> . Empty
+    (16) Term -> . INT
+    (17) Term -> . Bool
+    (18) Factor -> . OP Exp CP
+    (19) Factor -> . Prim
+    (20) Factor -> . Id
+    (30) Empty -> . EMPTY
+    (31) Bool -> . TRUE
+    (32) Bool -> . FALSE
+    (33) Prim -> . NUMBER_1
+    (34) Prim -> . FUNCTION_1
+    (35) Prim -> . LIST_1
+    (36) Prim -> . EMPTY_1
+    (37) Prim -> . CONS_1
+    (38) Prim -> . CONS
+    (39) Prim -> . FIRST
+    (40) Prim -> . REST
+    (41) Prim -> . ARITY
+
+    IF              shift and go to state 5
+    LET             shift and go to state 6
+    MAP             shift and go to state 7
+    PLUS            shift and go to state 3
+    MINUS           shift and go to state 4
+    TILDE           shift and go to state 8
+    INT             shift and go to state 12
+    OP              shift and go to state 10
+    Id              shift and go to state 15
+    EMPTY           shift and go to state 16
+    TRUE            shift and go to state 17
+    FALSE           shift and go to state 18
+    NUMBER_1        shift and go to state 19
+    FUNCTION_1      shift and go to state 20
+    LIST_1          shift and go to state 21
+    EMPTY_1         shift and go to state 22
+    CONS_1          shift and go to state 23
+    CONS            shift and go to state 24
+    FIRST           shift and go to state 25
+    REST            shift and go to state 26
+    ARITY           shift and go to state 27
+
+    Exp                            shift and go to state 57
+    PropExpList                    shift and go to state 68
+    Term                           shift and go to state 2
+    Factor                         shift and go to state 9
+    Empty                          shift and go to state 11
+    Bool                           shift and go to state 13
+    Prim                           shift and go to state 14
+
+state 66
+
+    (5) Exp -> IF Exp THEN Exp ELSE . Exp
+    (1) Exp -> . Term
+    (2) Exp -> . Term PLUS Exp
+    (3) Exp -> . Term MINUS Exp
+    (4) Exp -> . Term OPERATOR Exp
+    (5) Exp -> . IF Exp THEN Exp ELSE Exp
+    (6) Exp -> . LET DefList IN Exp
+    (7) Exp -> . MAP IdList TO Exp
+    (8) Exp -> . MAP TO Exp
+    (9) Term -> . PLUS Term
+    (10) Term -> . MINUS Term
+    (11) Term -> . TILDE Term
+    (12) Term -> . Factor
+    (13) Term -> . Factor OP ExpList CP
+    (14) Term -> . Factor OP CP
+    (15) Term -> . Empty
+    (16) Term -> . INT
+    (17) Term -> . Bool
+    (18) Factor -> . OP Exp CP
+    (19) Factor -> . Prim
+    (20) Factor -> . Id
+    (30) Empty -> . EMPTY
+    (31) Bool -> . TRUE
+    (32) Bool -> . FALSE
+    (33) Prim -> . NUMBER_1
+    (34) Prim -> . FUNCTION_1
+    (35) Prim -> . LIST_1
+    (36) Prim -> . EMPTY_1
+    (37) Prim -> . CONS_1
+    (38) Prim -> . CONS
+    (39) Prim -> . FIRST
+    (40) Prim -> . REST
+    (41) Prim -> . ARITY
+
+    IF              shift and go to state 5
+    LET             shift and go to state 6
+    MAP             shift and go to state 7
+    PLUS            shift and go to state 3
+    MINUS           shift and go to state 4
+    TILDE           shift and go to state 8
+    INT             shift and go to state 12
+    OP              shift and go to state 10
+    Id              shift and go to state 15
+    EMPTY           shift and go to state 16
+    TRUE            shift and go to state 17
+    FALSE           shift and go to state 18
+    NUMBER_1        shift and go to state 19
+    FUNCTION_1      shift and go to state 20
+    LIST_1          shift and go to state 21
+    EMPTY_1         shift and go to state 22
+    CONS_1          shift and go to state 23
+    CONS            shift and go to state 24
+    FIRST           shift and go to state 25
+    REST            shift and go to state 26
+    ARITY           shift and go to state 27
+
+    Exp                            shift and go to state 69
+    Term                           shift and go to state 2
+    Factor                         shift and go to state 9
+    Empty                          shift and go to state 11
+    Bool                           shift and go to state 13
+    Prim                           shift and go to state 14
+
+state 67
+
+    (27) Def -> Id ASSIGN Exp SEMICOLON .
+
+    Id              reduce using rule 27 (Def -> Id ASSIGN Exp SEMICOLON .)
+    IN              reduce using rule 27 (Def -> Id ASSIGN Exp SEMICOLON .)
+
+
+state 68
+
+    (23) PropExpList -> Exp COMMA PropExpList .
+
+    CP              reduce using rule 23 (PropExpList -> Exp COMMA PropExpList .)
+
+
+state 69
+
+    (5) Exp -> IF Exp THEN Exp ELSE Exp .
+
+    $end            reduce using rule 5 (Exp -> IF Exp THEN Exp ELSE Exp .)
+    THEN            reduce using rule 5 (Exp -> IF Exp THEN Exp ELSE Exp .)
+    CP              reduce using rule 5 (Exp -> IF Exp THEN Exp ELSE Exp .)
+    COMMA           reduce using rule 5 (Exp -> IF Exp THEN Exp ELSE Exp .)
+    ELSE            reduce using rule 5 (Exp -> IF Exp THEN Exp ELSE Exp .)
+    SEMICOLON       reduce using rule 5 (Exp -> IF Exp THEN Exp ELSE Exp .)
+
